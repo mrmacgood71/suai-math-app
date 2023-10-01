@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:andriod="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@+id/navigation_guidebook">
+
+    <fragment
+        android:id="@+id/navigation_guidebook"
+        android:name="it.macgood.mathanappkt.ui.guidebook.GuidebookFragment"
+        android:label="fragment_guidebook"
+        tools:layout="@layout/fragment_guidebook"
+
+        >
+        <action
+            android:id="@+id/get_encyclopedia"
+            app:destination="@id/encyclopediaFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_navigation_guidebook_to_desmosFragment"
+            app:destination="@id/desmosFragment" />
+        <action
+            android:id="@+id/get_desmos_from_guidebook"
+            app:destination="@id/desmosFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/get_tests_from_guidebook"
+            app:destination="@id/testsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/get_supportingMaterials_from_guidebook"
+            app:destination="@id/supportingMaterialsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/get_converter_from_guidebook"
+            app:destination="@id/converterFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/get_remark_from_guidebook"
+            app:destination="@id/remarkFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_navigation_guidebook_to_exerciseFragment"
+            app:destination="@id/exerciseFragment" />
+        <action
+            android:id="@+id/action_navigation_guidebook_to_contactsFragment"
+            app:destination="@id/contactsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_navigation_guidebook_to_authorFragment"
+            app:destination="@id/authorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_handbook"
+        android:name="it.macgood.mathanappkt.ui.handbook.HandbookFragment"
+        android:label="fragment_handbook"
+        tools:layout="@layout/fragment_handbook" >
+        <action
+            android:id="@+id/get_demidovich_chapters"
+            app:destination="@id/chaptersFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="false" />
+        <action
+            android:id="@+id/action_navigation_handbook_to_exercisesFragment"
+            app:destination="@id/exercisesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/encyclopediaFragment"
+        android:name="it.macgood.mathanappkt.ui.guidebook.encyclopedia.EncyclopediaFragment"
+        android:label="fragment_encyclopedia"
+        andriod:layout="@layout/fragment_encyclopedia" >
+        <action
+            android:id="@+id/get_guides_from_encyclopedia"
+            app:destination="@id/navigation_guidebook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_encyclopediaFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/chaptersFragment"
+        android:name="it.macgood.mathanappkt.ui.handbook.demidovich.ChaptersFragment"
+        android:label="fragment_chapters"
+        andriod:layout="@layout/fragment_chapters" >
+        <action
+            android:id="@+id/get_handbooks_from_demidovich_chapters"
+            app:destination="@id/navigation_handbook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/get_exercises_from_chapters_fragment"
+            app:destination="@id/exercisesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/get_exercise_from_search"
+            app:destination="@id/exerciseFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/exercisesFragment"
+        android:name="it.macgood.mathanappkt.ui.handbook.demidovich.exercises.ExercisesFragment"
+        android:label="fragment_exercises"
+        andriod:layout="@layout/fragment_exercises" >
+        <argument
+            android:name="range"
+            app:argType="string" />
+        <action
+            android:id="@+id/get_chapters_from_exercises_fragment"
+            app:destination="@id/chaptersFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/get_exercise_from_exerciseFragment"
+            app:destination="@id/exerciseFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <argument
+            android:name="page"
+            app:argType="integer" />
+        <argument
+            android:name="startId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="endId"
+            app:argType="integer"
+            android:defaultValue="340" />
+    </fragment>
+    <fragment
+        android:id="@+id/exerciseFragment"
+        android:name="it.macgood.mathanappkt.ui.handbook.demidovich.exercises.exercise.ExerciseFragment"
+        android:label="fragment_exercise"
+        andriod:layout="@layout/fragment_exercise" >
+        <action
+            android:id="@+id/get_exercisesFragment_from_exerciseFragment"
+            app:destination="@id/exercisesFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_exerciseFragment_to_savedExercisesFragment"
+            app:destination="@id/savedExercisesFragment" />
+        <argument
+            android:name="fromSaved"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/desmosFragment"
+        android:name="it.macgood.mathanappkt.ui.guidebook.desmos.DesmosFragment"
+        android:label="fragment_desmos"
+        andriod:layout="@layout/fragment_desmos" >
+        <action
+            android:id="@+id/get_guidebook_from_desmosFragment"
+            app:destination="@id/navigation_guidebook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/testsFragment"
+        android:name="it.macgood.mathanappkt.ui.guidebook.tests.TestsFragment"
+        android:label="fragment_tests"
+        andriod:layout="@layout/fragment_tests" >
+        <action
+            android:id="@+id/get_guidebook_from_tests"
+            app:destination="@id/navigation_guidebook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/navigation_guidebook"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/supportingMaterialsFragment"
+        android:name="it.macgood.mathanappkt.ui.guidebook.supportingmaterials.SupportingMaterialsFragment"
+        android:label="fragment_supporting_materials"
+        andriod:layout="@layout/fragment_supporting_materials" >
+        <action
+            android:id="@+id/action_supportingMaterialsFragment_to_navigation_guidebook"
+            app:destination="@id/navigation_guidebook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/get_download_from_supports"
+            app:destination="@id/downloadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/converterFragment"
+        android:name="it.macgood.mathanappkt.ui.guidebook.converter.ConverterFragment"
+        android:label="fragment_converter"
+        andriod:layout="@layout/fragment_converter" >
+        <action
+            android:id="@+id/get_guidebook_from_converter"
+            app:destination="@id/navigation_guidebook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/remarkFragment"
+        android:name="it.macgood.mathanappkt.ui.guidebook.remark.RemarkFragment"
+        android:label="fragment_remark"
+        andriod:layout="@layout/fragment_remark" >
+        <action
+            android:id="@+id/get_guidebook_from_remark"
+            app:destination="@id/navigation_guidebook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/downloadFragment"
+        android:name="it.macgood.mathanappkt.ui.guidebook.download.DownloadFragment"
+        android:label="fragment_download"
+        andriod:layout="@layout/fragment_download" >
+        <action
+            android:id="@+id/get_guidebook_from_download"
+            app:destination="@id/supportingMaterialsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="it.macgood.mathanappkt.ui.guidebook.encyclopedia.AboutFragment"
+        android:label="fragment_about"
+        andriod:layout="@layout/fragment_about" >
+        <action
+            android:id="@+id/action_aboutFragment_to_encyclopediaFragment"
+            app:destination="@id/encyclopediaFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="it.macgood.mathanappkt.ui.guidebook.contacts.ContactsFragment"
+        android:label="fragment_contacts"
+        andriod:layout="@layout/fragment_contacts" >
+        <action
+            android:id="@+id/action_contactsFragment_to_navigation_guidebook"
+            app:destination="@id/navigation_guidebook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/authorFragment"
+        android:name="it.macgood.mathanappkt.ui.guidebook.author.AuthorFragment"
+        android:label="fragment_author"
+        andriod:layout="@layout/fragment_author" >
+        <action
+            android:id="@+id/action_authorFragment_to_navigation_guidebook"
+            app:destination="@id/navigation_guidebook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedExercisesFragment"
+        android:name="it.macgood.mathanappkt.ui.saved.SavedExercisesFragment"
+        android:label="fragment_saved_exercises"
+        andriod:layout="@layout/fragment_saved_exercises" >
+        <action
+            android:id="@+id/action_savedExercisesFragment_to_exerciseFragment"
+            app:destination="@id/exerciseFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+
+</navigation>

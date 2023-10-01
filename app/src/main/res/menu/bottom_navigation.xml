@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_guidebook"
+        android:icon="@drawable/ic_baseline_menu_book_24"
+        android:orderInCategory="1"
+        android:title="@string/guidebook" />
+    <item
+        android:id="@+id/navigation_handbook"
+        android:icon="@drawable/ic_outline_book_24"
+        android:title="@string/handbook"
+        android:orderInCategory="2"
+        />
+    <item
+        android:id="@+id/savedExercisesFragment"
+        android:icon="@drawable/ic_baseline_text_snippet_24"
+        android:title="@string/saved"
+        android:orderInCategory="3"
+        />
+</menu>
