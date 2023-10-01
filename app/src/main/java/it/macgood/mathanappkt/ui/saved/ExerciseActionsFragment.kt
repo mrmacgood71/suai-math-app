@@ -10,8 +10,8 @@ import androidx.fragment.app.activityViewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 import it.macgood.mathanappkt.databinding.FragmentExerciseActionsBinding
-import it.macgood.mathanappkt.ui.handbook.demidovich.exercises.ExerciseListViewModel
-import it.macgood.mathanappkt.ui.handbook.demidovich.exercises.exercise.ExerciseViewModel
+import it.macgood.mathanappkt.ui.handbook.ExerciseListViewModel
+import it.macgood.mathanappkt.ui.handbook.ExerciseViewModel
 
 @AndroidEntryPoint
 class ExerciseActionsFragment : BottomSheetDialogFragment() {

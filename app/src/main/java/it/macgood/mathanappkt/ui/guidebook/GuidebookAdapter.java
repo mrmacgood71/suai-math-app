@@ -19,7 +19,6 @@ import java.util.List;
 import it.macgood.mathanappkt.R;
 import it.macgood.mathanappkt.databinding.ItemGuidebookBinding;
 import it.macgood.mathanappkt.ui.MainActivity;
-import it.macgood.mathanappkt.ui.guidebook.supportingmaterials.MaterialsURL;
 
 public class GuidebookAdapter extends RecyclerView.Adapter<GuidebookAdapter.ViewHolder>{
 
@@ -95,29 +94,20 @@ public class GuidebookAdapter extends RecyclerView.Adapter<GuidebookAdapter.View
         private void navigateFromGuidebook(@NonNull View itemView, NavController navController) {
             switch (title.getText().toString()) {
                 case "Энциклопедия":
-                    navController.navigate(R.id.get_encyclopedia);
                     break;
                 case "Desmos":
-                    navController.navigate(R.id.get_desmos_from_guidebook);
                     break;
                 case "Тесты":
-                    navController.navigate(R.id.get_tests_from_guidebook);
                     break;
                 case "Сопроводительные материалы":
-                    navController.navigate(R.id.get_supportingMaterials_from_guidebook);
                     break;
                 case "Конвертер изображений":
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MaterialsURL.CONVERTER));
-                    itemView.getContext().startActivity(browserIntent);
                     break;
                 case "Примечания":
-                    navController.navigate(R.id.get_remark_from_guidebook);
                     break;
                 case "Авторы":
-                    navController.navigate(R.id.action_navigation_guidebook_to_authorFragment);
                     break;
                 case "Контакты":
-                    navController.navigate(R.id.action_navigation_guidebook_to_contactsFragment);
                     break;
             }
         }

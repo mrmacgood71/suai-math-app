@@ -12,7 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import it.macgood.mathanappkt.R
 import it.macgood.mathanapp.data.datasource.ExerciseDto
 import it.macgood.mathanappkt.databinding.ActivityMainBinding
-import it.macgood.mathanappkt.ui.handbook.demidovich.exercises.exercise.ExerciseViewModel
+import it.macgood.mathanappkt.ui.handbook.ExerciseViewModel
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
                 "",
                 "")
 
-            navController.navigate(R.id.action_navigation_guidebook_to_exerciseFragment)
             Log.d("TAG", "onCreate: $query")
         }
     }
