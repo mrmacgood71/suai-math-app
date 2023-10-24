@@ -3,17 +3,8 @@ package it.macgood.mathanappkt.common
 import it.macgood.mathanappkt.ui.guidebook.Guide
 
 object Constants {
-    const val BASE_URL = "stub"
+
     const val DOWNLOAD_URL = "stub"
-
-    //Bundle
-    const val EXERCISE_ID = "id"
-    const val EXERCISES_SIZE = "size"
-    const val EXERCISES_TEXT = "text"
-
-    //Fragments to Adapter
-    const val GUIDEBOOK_ID = 100
-    const val ROLLED_GUIDEBOOK_ID = 101
 
     var list: MutableList<Guide> = mutableListOf(
         Guide(1, "Энциклопедия", "Сборник математических определений, теорем и приложений"),

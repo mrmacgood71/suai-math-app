@@ -1,4 +1,4 @@
-package it.macgood.mathanappkt.ui.handbook
+package it.macgood.mathanappkt.ui.handbook.demidovich.exercises
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,9 +8,9 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import it.macgood.mathanappkt.R
 import it.macgood.mathanapp.data.datasource.ExerciseDto
 import it.macgood.mathanapp.domain.model.Exercise
+import it.macgood.mathanappkt.R
 import it.macgood.mathanappkt.databinding.ItemExerciseBinding
 import it.macgood.mathanappkt.ui.handbook.ExerciseViewModel
 import it.macgood.mathanappkt.ui.saved.ExerciseActionsFragment
@@ -46,8 +46,11 @@ class ExercisesAdapter(
             binding.number.text = "Задача № ${exercise.id}"
             binding.text.text = exercise.questionText
 
-            configSavedExerciseItem(exercise)
-
+            if (parent is ExercisesFragment) {
+                configListExerciseItem(exercise)
+            } else {
+                configSavedExerciseItem(exercise)
+            }
         }
     }
 
@@ -61,6 +64,8 @@ class ExercisesAdapter(
                     formula = exercise.formula
                 )
             )
+            it.findNavController().navigate(R.id.get_exercise_from_exerciseFragment, bundleOf("fromSaved" to false))
+
         }
     }
 
@@ -74,6 +79,8 @@ class ExercisesAdapter(
                     formula = exercise.formula
                 )
             )
+            it.findNavController()
+                .navigate(R.id.action_savedExercisesFragment_to_exerciseFragment, bundleOf("fromSaved" to true))
 
         }
         itemView.setOnLongClickListener {

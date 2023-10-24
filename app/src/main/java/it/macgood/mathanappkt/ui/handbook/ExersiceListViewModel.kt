@@ -1,5 +1,6 @@
 package it.macgood.mathanappkt.ui.handbook
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,6 +11,10 @@ import it.macgood.mathanapp.data.datasource.toExercise
 import it.macgood.mathanapp.domain.model.Exercise
 import it.macgood.mathanapp.domain.repository.ExerciseRepository
 import it.macgood.mathanapp.domain.repository.SavedExerciseRepository
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -17,43 +22,84 @@ import javax.inject.Inject
 class ExerciseListViewModel @Inject constructor(
     val repository: ExerciseRepository,
     val storage: SavedExerciseRepository
-): ViewModel() {
+) : ViewModel() {
 
     val range: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }
 
-    val exercises: MutableLiveData<Resource<List<Exercise>>> = MutableLiveData()
-    val searchExercises: MutableLiveData<Resource<List<Exercise>>> = MutableLiveData()
-
     val saved: MutableLiveData<List<Exercise>> = MutableLiveData()
-
     val page: MutableLiveData<Int> = MutableLiveData()
 
+
+    val _searchExercises: MutableStateFlow<Resource<List<Exercise>>> =
+        MutableStateFlow(Resource.Loading())
+    val searchExercises: StateFlow<Resource<List<Exercise>>> = _searchExercises.asStateFlow()
+
+    val _exercises: MutableStateFlow<Resource<List<Exercise>>> =
+        MutableStateFlow(Resource.Loading())
+    val exercises: StateFlow<Resource<List<Exercise>>> = _exercises.asStateFlow()
+
+    val _savedTasks: MutableStateFlow<Resource<List<Exercise>>> =
+        MutableStateFlow(Resource.Loading())
+    val savedTasks = _savedTasks.asStateFlow()
+
+
     init {
-        getSearchExercises()
+        getSavedTasks()
+        getExercisesInSearch()
     }
 
-    fun getResponse(startId: Int, endId: Int) = viewModelScope.launch {
-        exercises.postValue(Resource.Loading())
-        val response = repository.getExercises(startId, endId)
-        exercises.postValue(handleExercisesResponse(response))
-    }
-
-    fun saveExercise(exercise: ExerciseDto) = viewModelScope.launch { storage.insertExercise(exercise.toExercise()) }
-    fun getTasks() = storage.getTasks()
-    fun deleteExercise(exercise: ExerciseDto) = viewModelScope.launch { storage.deleteExercises(exercise.toExercise()) }
-
-    private fun getSearchExercises() = viewModelScope.launch {
-        searchExercises.postValue(Resource.Loading())
-        val response = repository.getExercises(1, 3200)
-        searchExercises.postValue(handleExercisesResponse(response))
-    }
-
-    private fun handleExercisesResponse(response: List<Exercise>) : Resource<List<Exercise>> {
-        if (response.isNotEmpty()) {
-            return Resource.Success(response)
+    fun getSavedTasks() {
+        viewModelScope.launch {
+            storage.getTasks().collect { response ->
+                _savedTasks.update {
+                    try {
+                        Resource.Success(response)
+                    } catch (e: Exception) {
+                        Resource.Error("Unexpected Error")
+                    }
+                }
+            }
         }
-        return Resource.Error("Error: Result is empty")
     }
+
+    fun getExercisesInSearch() = viewModelScope.launch {
+        val response = repository.getExercises()
+        response.collect { list ->
+            _searchExercises.update {
+                try {
+                    Resource.Success(list)
+                } catch (e: Exception) {
+                    Resource.Success(list)
+                }
+            }
+        }
+    }
+
+    fun getExercisesInRange(startId: Int = 0, endId: Int = 0) = viewModelScope.launch {
+        val response = repository.getExercises(startId, endId)
+        Log.d("TAG", "onCreateView: startId: ${startId}, endId: ${endId}")
+        response.collect { list ->
+            _exercises.update {
+                try {
+                    if (startId == 0 && endId == 0) {
+                        Resource.Success(list)
+                    } else {
+                        Resource.Success(list.subList(startId, endId))
+                    }
+
+                } catch (e: Exception) {
+                    Resource.Success(list)
+                }
+            }
+        }
+    }
+
+    fun saveExercise(exercise: ExerciseDto) =
+        viewModelScope.launch { storage.insertExercise(exercise.toExercise()) }
+
+    fun deleteExercise(exercise: ExerciseDto) =
+        viewModelScope.launch { storage.deleteExercises(exercise.toExercise()) }
+
 }

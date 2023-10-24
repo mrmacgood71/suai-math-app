@@ -13,5 +13,4 @@ class ExerciseViewModel @Inject constructor() : ViewModel() {
         MutableLiveData<ExerciseDto>()
     }
 
-
 }

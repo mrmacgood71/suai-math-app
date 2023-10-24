@@ -1,27 +1,26 @@
 package it.macgood.mathanapp.data.repository
 
-import it.macgood.mathanapp.data.MathAnalysisApi
-import it.macgood.mathanapp.data.datasource.ExerciseDto
+import it.macgood.mathanapp.data.datasource.TaskDao
 import it.macgood.mathanapp.data.datasource.toExercise
 import it.macgood.mathanapp.domain.model.Exercise
 import it.macgood.mathanapp.domain.repository.ExerciseRepository
-import retrofit2.Response
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class ExerciseRepositoryImpl @Inject constructor(
-    private val api: MathAnalysisApi
+    private val dao: TaskDao
 ): ExerciseRepository {
 
-    override suspend fun getExercises(startId: Int, endId: Int): List<Exercise> {
-
-        val response = api.getExercises(startId, endId)
-        if (response.body() != null && response.isSuccessful) {
-            return response.body()!!.map { it.toExercise() }
-        }
-        return emptyList()
-    }
+    override suspend fun getExercises(startId: Int, endId: Int) = flow {
+        val value = dao.getExercises()
+            .map { it.toExercise() }
+            .sortedBy { it.id.toInt() }
+        emit(value)
+    }.flowOn(Dispatchers.IO)
 
     override suspend fun getExercise(id: String): Exercise {
-        return api.getExercise(id).toExercise()
+        return dao.getExercise(id.toLong()).toExercise()
     }
 }
