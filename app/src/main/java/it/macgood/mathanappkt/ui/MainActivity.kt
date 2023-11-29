@@ -2,8 +2,10 @@ package it.macgood.mathanappkt.ui
 
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -12,11 +14,16 @@ import dagger.hilt.android.AndroidEntryPoint
 import it.macgood.mathanappkt.R
 import it.macgood.mathanapp.data.datasource.ExerciseDto
 import it.macgood.mathanappkt.databinding.ActivityMainBinding
-import it.macgood.mathanappkt.ui.handbook.demidovich.exercises.exercise.ExerciseViewModel
+import it.macgood.mathanappkt.ui.handbook.ExerciseListViewModel
+import it.macgood.mathanappkt.ui.handbook.ExerciseViewModel
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private lateinit var viewModel: ExerciseViewModel
+//    private lateinit var viewModel: ExerciseViewModel
+//    private lateinit var listViewModel: ExerciseListViewModel
+
+    private val exerciseListViewModel: ExerciseListViewModel by viewModels()
+    private val viewModel: ExerciseViewModel by viewModels()
 
     private lateinit var binding: ActivityMainBinding
 
@@ -24,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        viewModel = ViewModelProvider(this)[ExerciseViewModel::class.java]
         setContentView(binding.root)
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)

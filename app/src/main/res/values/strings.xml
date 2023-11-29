@@ -19,4 +19,5 @@
     <string name="exerciseTitle">Упражнение</string>
     <string name="android_backend"><![CDATA[Чурюмов Богдан: Android & Backend-разработчик]]></string>
     <string name="saved">Сохранённое</string>
+    <string name="list_of_excercises">Список заданий</string>
 </resources>

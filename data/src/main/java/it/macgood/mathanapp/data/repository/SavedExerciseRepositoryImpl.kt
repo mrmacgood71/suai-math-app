@@ -1,18 +1,20 @@
 package it.macgood.mathanapp.data.repository
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.map
-import it.macgood.mathanapp.data.datasource.ExerciseDto
 import it.macgood.mathanapp.data.datasource.TaskDao
 import it.macgood.mathanapp.data.datasource.toExercise
 import it.macgood.mathanapp.data.datasource.toExerciseDto
 import it.macgood.mathanapp.domain.model.Exercise
 import it.macgood.mathanapp.domain.repository.SavedExerciseRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 class SavedExerciseRepositoryImpl(
     val dao: TaskDao
 ): SavedExerciseRepository {
-    override fun getTasks(): LiveData<List<Exercise>> = dao.getExercises().map { it.map { it.toExercise() } }
+    override fun getTasks() = flow {
+        emit(dao.getExercises().map { it.toExercise() })
+    }.flowOn(Dispatchers.IO)
 
     override suspend fun getTask(id: Long): Exercise? = dao.getExercise(id)?.toExercise()
 

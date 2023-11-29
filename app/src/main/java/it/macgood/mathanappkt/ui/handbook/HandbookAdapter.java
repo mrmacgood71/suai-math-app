@@ -72,10 +72,10 @@ public class HandbookAdapter extends RecyclerView.Adapter<HandbookAdapter.ViewHo
             mAuthor = binding.textAuthor;
 
             MainActivity activity = (MainActivity) itemView.getContext();
-
+            NavController navController = Navigation.findNavController(activity, R.id.app_placeholder);
             mItem.setOnClickListener(view -> {
                 if (mAuthor.getText().equals(handbooks.get(0).getAuthor())) {
-
+                    navController.navigate(R.id.get_demidovich_chapters);
                 }
             });
 

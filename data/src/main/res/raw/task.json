@@ -1,0 +1,80 @@
+[
+  {
+    "id": "1",
+    "formula": "\\left||a|-|b|\\right|\\leq|a-b|\\leq|a|+|b|",
+    "question_number": "",
+    "question_text": ""
+  },
+  {
+    "id": "8",
+    "formula": "",
+    "question_number": "",
+    "question_text": ""
+  },
+  {
+    "id": "9",
+    "formula": "4\\leq x\\leq5",
+    "question_number": "",
+    "question_text": ""
+  },
+  {
+    "id": "10",
+    "formula": "\\begin{cases}0, & x \\leq 0\\\\x, & x > 0\\end{cases}",
+    "question_number": "",
+    "question_text": ""
+  },
+  {
+    "id": "11",
+    "formula": "a) {\\sqrt{x+1}}\nб) y=\\sqrt[3]{x+1}\n",
+    "question_number": "",
+    "question_text": ""
+  },
+  {
+    "id": "12",
+    "formula": "\\textstyle y={\\frac{1}{4-x^{2}}}",
+    "question_number": "",
+    "question_text": ""
+  },
+  {
+    "id": "13",
+    "formula": "А) \\textstyle y={\\sqrt{x^{2}-2}}\nБ) y=x{\\sqrt{x^{2}-2}}\n",
+    "question_number": "",
+    "question_text": ""
+  },
+  {
+    "id": "14",
+    "formula": "y={\\sqrt{2+x-x^{2}}}",
+    "question_number": "",
+    "question_text": ""
+  },
+  {
+    "id": "15",
+    "formula": "y={\\sqrt{-x}}+{\\frac{1}{\\sqrt{2+x}}}",
+    "question_number": "",
+    "question_text": ""
+  },
+  {
+    "id": "16",
+    "formula": "y={\\sqrt{x-x^{3}}}",
+    "question_number": "",
+    "question_text": ""
+  },
+  {
+    "id": "17",
+    "formula": "y=\\lg{\\frac{2+x}{2-x}}",
+    "question_number": "",
+    "question_text": ""
+  },
+  {
+    "id": "18",
+    "formula": "y=\\lg{\\frac{x^{2}-3x+2}{x+1}}",
+    "question_number": "",
+    "question_text": ""
+  },
+  {
+    "id": "19",
+    "formula": "y=\\operatorname{arccos}{\\frac{2x}{1+x}}",
+    "question_number": "",
+    "question_text": ""
+  }
+]
