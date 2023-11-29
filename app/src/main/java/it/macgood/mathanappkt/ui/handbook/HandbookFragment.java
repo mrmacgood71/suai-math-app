@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

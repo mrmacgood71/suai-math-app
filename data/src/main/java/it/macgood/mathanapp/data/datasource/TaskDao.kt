@@ -1,6 +1,5 @@
 package it.macgood.mathanapp.data.datasource
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao

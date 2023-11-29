@@ -1,6 +1,5 @@
 package it.macgood.mathanapp.domain.repository
 
-import androidx.lifecycle.LiveData
 import it.macgood.mathanapp.domain.model.Exercise
 import kotlinx.coroutines.flow.Flow
 
