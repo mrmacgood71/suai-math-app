@@ -27,7 +27,7 @@ class ChaptersAdapter(
                 val range = range
                 viewModel.range.value = range
                 viewModel.page.postValue(chapter.id)
-                it.findNavController().navigate(R.id.get_exercises_from_chapters_fragment, bundleOf(
+                it.findNavController().navigate(R.id.action_chaptersFragment_to_exercisesFragment, bundleOf(
                     "startId" to chapter.range.first,
                     "endId" to chapter.range.last,
                     "page" to chapter.id)

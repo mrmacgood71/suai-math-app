@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
+import it.macgood.mathanapp.data.datasource.entity.SavedTaskDto
 import it.macgood.mathanappkt.databinding.FragmentExerciseActionsBinding
 import it.macgood.mathanappkt.ui.handbook.ExerciseListViewModel
 import it.macgood.mathanappkt.ui.handbook.ExerciseViewModel
@@ -32,7 +33,7 @@ class ExerciseActionsFragment : BottomSheetDialogFragment() {
             binding.exerciseLegendTextView.text = "Действия с задачаей №${exercise.id}: ${exercise.questionText}"
 
             binding.deleteButtonLayout.setOnClickListener {
-                exerciseListViewModel.deleteExercise(exercise)
+                exerciseListViewModel.deleteExercise(SavedTaskDto(exercise.id, exercise.questionNumber, exercise.questionText, exercise.formula))
                 this.dismiss()
             }
 

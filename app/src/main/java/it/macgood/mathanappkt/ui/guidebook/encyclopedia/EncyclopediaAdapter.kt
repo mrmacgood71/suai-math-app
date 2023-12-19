@@ -24,7 +24,7 @@ class EncyclopediaAdapter(
             parent.viewModel.letter.postValue(
                 mAlphabets[position]
             )
-            v?.findNavController()?.navigate(R.id.action_encyclopediaFragment_to_aboutFragment)
+            v?.findNavController()?.popBackStack()
         }
     }
 

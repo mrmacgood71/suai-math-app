@@ -6,9 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import it.macgood.core.Resource
-import it.macgood.mathanapp.data.datasource.ExerciseDto
-import it.macgood.mathanapp.data.datasource.toExercise
+import it.macgood.mathanapp.data.datasource.entity.ExerciseDto
+import it.macgood.mathanapp.data.datasource.entity.SavedTaskDto
+import it.macgood.mathanapp.data.datasource.entity.toExercise
+import it.macgood.mathanapp.data.datasource.entity.toSavedTask
 import it.macgood.mathanapp.domain.model.Exercise
+import it.macgood.mathanapp.domain.model.SavedTask
 import it.macgood.mathanapp.domain.repository.ExerciseRepository
 import it.macgood.mathanapp.domain.repository.SavedExerciseRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,7 +34,6 @@ class ExerciseListViewModel @Inject constructor(
     val saved: MutableLiveData<List<Exercise>> = MutableLiveData()
     val page: MutableLiveData<Int> = MutableLiveData()
 
-
     val _searchExercises: MutableStateFlow<Resource<List<Exercise>>> =
         MutableStateFlow(Resource.Loading())
     val searchExercises: StateFlow<Resource<List<Exercise>>> = _searchExercises.asStateFlow()
@@ -40,7 +42,7 @@ class ExerciseListViewModel @Inject constructor(
         MutableStateFlow(Resource.Loading())
     val exercises: StateFlow<Resource<List<Exercise>>> = _exercises.asStateFlow()
 
-    val _savedTasks: MutableStateFlow<Resource<List<Exercise>>> =
+    val _savedTasks: MutableStateFlow<Resource<List<SavedTask>>> =
         MutableStateFlow(Resource.Loading())
     val savedTasks = _savedTasks.asStateFlow()
 
@@ -96,10 +98,10 @@ class ExerciseListViewModel @Inject constructor(
         }
     }
 
-    fun saveExercise(exercise: ExerciseDto) =
-        viewModelScope.launch { storage.insertExercise(exercise.toExercise()) }
+    fun saveExercise(exercise: SavedTaskDto) =
+        viewModelScope.launch { storage.insertSavedTask(exercise.toSavedTask()) }
 
-    fun deleteExercise(exercise: ExerciseDto) =
-        viewModelScope.launch { storage.deleteExercises(exercise.toExercise()) }
+    fun deleteExercise(exercise: SavedTaskDto) =
+        viewModelScope.launch { storage.deleteSavedTask(exercise.toSavedTask()) }
 
 }

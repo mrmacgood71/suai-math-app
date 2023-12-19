@@ -43,13 +43,13 @@ class TestsFragment : Fragment() {
             toolbar.title.text = "Тесты"
 
 
-            toolbar.backButton.setOnClickListener{
+            toolbar.backButton.setOnClickListener {
                 val navController
                         = Navigation.findNavController(
                     inflater.context as MainActivity,
                     R.id.app_placeholder
                 )
-                navController.navigate(R.id.get_guidebook_from_tests)
+                navController.popBackStack()
             }
         }
 

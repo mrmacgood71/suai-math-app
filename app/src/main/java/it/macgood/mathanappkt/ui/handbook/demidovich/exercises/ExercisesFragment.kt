@@ -77,8 +77,8 @@ class ExercisesFragment : Fragment() {
         val range = exerciseListViewModel.range.value?.split(" ")
         val exercise = viewModel.exercise.value
 
-        if (exercise?.questionNumber != null && exercise.questionNumber.isNotEmpty()) {
-            binding.recyclerView.scrollToPosition(exercise.questionNumber.toInt() - 1)
+        if (exercise?.questionNumber != null && exercise.questionNumber!!.isNotEmpty()) {
+            binding.recyclerView.scrollToPosition(exercise.questionNumber!!.toInt() - 1)
         }
 
         binding.recyclerView.scrollToPosition(exercise?.id?.toInt().let { 0 })

@@ -62,8 +62,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideNoteRepository(database: MathAnalysisDatabase): SavedExerciseRepository {
-        return SavedExerciseRepositoryImpl(database.taskDao)
+    fun provideSavedTasksRepository(database: MathAnalysisDatabase): SavedExerciseRepository {
+        return SavedExerciseRepositoryImpl(database.savedTaskDao)
     }
 
     @Provides

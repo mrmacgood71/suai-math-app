@@ -13,7 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import it.macgood.core.Resource
-import it.macgood.mathanapp.data.datasource.ExerciseDto
+import it.macgood.mathanapp.data.datasource.entity.ExerciseDto
 import it.macgood.mathanapp.domain.model.Exercise
 import it.macgood.mathanappkt.R
 import it.macgood.mathanappkt.databinding.FragmentSearchBinding

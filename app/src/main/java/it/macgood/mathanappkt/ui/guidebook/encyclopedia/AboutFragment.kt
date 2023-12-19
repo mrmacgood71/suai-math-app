@@ -26,7 +26,7 @@ class AboutFragment : Fragment() {
             binding.toolbar.title.text = "Термины на букву: $it"
         }
         binding.recyclerView.adapter = adapter
-        binding.toolbar.backButton.setOnClickListener { findNavController().navigate(R.id.action_aboutFragment_to_encyclopediaFragment) }
+        binding.toolbar.backButton.setOnClickListener { findNavController().popBackStack() }
         return binding.root
     }
 

@@ -30,7 +30,7 @@ class ChaptersFragment : Fragment() {
         binding.toolbar.title.text = "Cборник задач - Б. П. Демидович"
 
         binding.toolbar.backButton.setOnClickListener {
-            findNavController().navigate(R.id.get_handbooks_from_demidovich_chapters) }
+            findNavController().popBackStack() }
         binding.fabSearch.setOnClickListener {
             val searchFragment = SearchFragment()
             searchFragment.show(requireFragmentManager(), "TAG")

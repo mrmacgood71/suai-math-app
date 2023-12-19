@@ -35,7 +35,7 @@ class ConverterFragment : Fragment() {
                     inflater.context as MainActivity,
                     R.id.app_placeholder
                 )
-                navController.navigate(R.id.get_guidebook_from_converter)
+                navController.popBackStack()
             }
         }
 

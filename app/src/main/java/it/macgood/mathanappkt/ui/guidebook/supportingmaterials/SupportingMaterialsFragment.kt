@@ -48,10 +48,10 @@ class SupportingMaterialsFragment : Fragment() {
         binding.toolbar.backButton.setOnClickListener {
             val navController
                     = Navigation.findNavController(
-                inflater.getContext() as MainActivity,
+                inflater.context as MainActivity,
                 R.id.app_placeholder
             )
-            navController.navigate(R.id.action_supportingMaterialsFragment_to_navigation_guidebook)
+            navController.popBackStack()
         }
 
         return binding.root

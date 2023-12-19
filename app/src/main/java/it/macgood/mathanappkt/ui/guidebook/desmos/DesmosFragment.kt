@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import it.macgood.mathanappkt.R
 import it.macgood.mathanappkt.databinding.FragmentDesmosBinding
@@ -38,8 +39,11 @@ class DesmosFragment : Fragment() {
 
         binding.toolbar.backButton.setOnClickListener{
             val navController
-            = findNavController(inflater.getContext() as MainActivity, R.id.app_placeholder)
-            navController.navigate(R.id.get_guidebook_from_desmosFragment)
+                    = findNavController(
+                inflater.context as MainActivity,
+                R.id.app_placeholder
+            )
+            navController.popBackStack()
 
         }
         binding.webView.settings.javaScriptEnabled = true

@@ -90,8 +90,4 @@ dependencies {
     implementation project(":data")
     implementation project(":core")
 
-
-//    implementation 'in.hourglass.mathrender:katexmathview:1.0.3'
-//    implementation 'io.github.kexanie.library:MathView:0.0.6'
-//    implementation 'com.github.Nishant-Pathak:mathview:v1.2'
 }

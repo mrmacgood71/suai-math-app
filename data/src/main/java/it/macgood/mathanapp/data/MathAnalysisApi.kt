@@ -1,6 +1,6 @@
 package it.macgood.mathanapp.data
 
-import it.macgood.mathanapp.data.datasource.ExerciseDto
+import it.macgood.mathanapp.data.datasource.entity.ExerciseDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

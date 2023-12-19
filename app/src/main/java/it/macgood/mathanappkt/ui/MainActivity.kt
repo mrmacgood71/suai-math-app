@@ -5,14 +5,12 @@ import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import it.macgood.mathanappkt.R
-import it.macgood.mathanapp.data.datasource.ExerciseDto
+import it.macgood.mathanapp.data.datasource.entity.ExerciseDto
 import it.macgood.mathanappkt.databinding.ActivityMainBinding
 import it.macgood.mathanappkt.ui.handbook.ExerciseListViewModel
 import it.macgood.mathanappkt.ui.handbook.ExerciseViewModel

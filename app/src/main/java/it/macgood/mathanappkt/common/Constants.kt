@@ -4,7 +4,7 @@ import it.macgood.mathanappkt.ui.guidebook.Guide
 
 object Constants {
 
-    const val DOWNLOAD_URL = "stub"
+    const val DOWNLOAD_URL = "https://math-analysis-dev-server-production-63ae.up.railway.app/"
 
     var list: MutableList<Guide> = mutableListOf(
         Guide(1, "Энциклопедия", "Сборник математических определений, теорем и приложений"),

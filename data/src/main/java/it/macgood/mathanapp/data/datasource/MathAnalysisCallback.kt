@@ -1,11 +1,10 @@
 package it.macgood.mathanapp.data.datasource
 
-import android.content.ContentProvider
 import android.content.Context
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import it.macgood.mathanapp.data.R
-import it.macgood.mathanapp.domain.model.Exercise
+import it.macgood.mathanapp.data.datasource.entity.ExerciseDto
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch

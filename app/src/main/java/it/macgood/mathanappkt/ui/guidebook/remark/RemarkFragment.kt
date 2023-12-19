@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import it.macgood.mathanappkt.R
 import it.macgood.mathanappkt.common.navigate
 import it.macgood.mathanappkt.databinding.FragmentRemarkBinding
+import it.macgood.mathanappkt.ui.MainActivity
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -39,8 +41,13 @@ class RemarkFragment : Fragment() {
 
         binding.toolbar.title.text = "Примечания"
 
-        binding.toolbar.backButton.setOnClickListener{
-            navigate(R.id.get_guidebook_from_remark)
+        binding.toolbar.backButton.setOnClickListener {
+            val navController
+                    = Navigation.findNavController(
+                inflater.context as MainActivity,
+                R.id.app_placeholder
+            )
+            navController.popBackStack()
         }
 
         return binding.root

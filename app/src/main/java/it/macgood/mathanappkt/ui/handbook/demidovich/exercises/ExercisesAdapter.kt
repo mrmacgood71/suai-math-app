@@ -8,7 +8,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import it.macgood.mathanapp.data.datasource.ExerciseDto
+import it.macgood.mathanapp.data.datasource.entity.ExerciseDto
 import it.macgood.mathanapp.domain.model.Exercise
 import it.macgood.mathanappkt.R
 import it.macgood.mathanappkt.databinding.ItemExerciseBinding
@@ -64,7 +64,7 @@ class ExercisesAdapter(
                     formula = exercise.formula
                 )
             )
-            it.findNavController().navigate(R.id.get_exercise_from_exerciseFragment, bundleOf("fromSaved" to false))
+            it.findNavController().navigate(R.id.action_exercisesFragment_to_exerciseFragment, bundleOf("fromSaved" to false))
 
         }
     }

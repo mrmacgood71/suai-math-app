@@ -11,6 +11,7 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import it.macgood.core.Resource
+import it.macgood.mathanapp.domain.model.Exercise
 import it.macgood.mathanappkt.databinding.FragmentSavedExercisesBinding
 import it.macgood.mathanappkt.ui.handbook.ExerciseListViewModel
 import it.macgood.mathanappkt.ui.handbook.demidovich.exercises.ExercisesAdapter
@@ -39,7 +40,7 @@ class SavedExercisesFragment : Fragment() {
         binding.toolbar.backButton.visibility = View.GONE
 
         val adapter = ExercisesAdapter(this, exerciseViewModel)
-
+        exerciseListViewModel.getSavedTasks()
         viewLifecycleOwner.lifecycleScope.launch {
             exerciseListViewModel.savedTasks.flowWithLifecycle(
                 viewLifecycleOwner.lifecycle,
@@ -51,7 +52,7 @@ class SavedExercisesFragment : Fragment() {
                     is Resource.Error -> { }
                     is Resource.Loading -> { }
                     is Resource.Success -> {
-                        adapter.exercises.submitList(response.data)
+                        adapter.exercises.submitList(response.data?.map { Exercise(it.id, it.questionNumber ?: "", it.questionText, it.formula) })
                     }
                 }
             }

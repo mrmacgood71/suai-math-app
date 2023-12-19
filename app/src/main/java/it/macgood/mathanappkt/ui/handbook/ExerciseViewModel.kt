@@ -3,7 +3,7 @@ package it.macgood.mathanappkt.ui.handbook
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import it.macgood.mathanapp.data.datasource.ExerciseDto
+import it.macgood.mathanapp.data.datasource.entity.ExerciseDto
 import javax.inject.Inject
 
 @HiltViewModel

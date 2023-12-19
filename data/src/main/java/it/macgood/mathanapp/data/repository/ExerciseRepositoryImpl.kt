@@ -1,16 +1,12 @@
 package it.macgood.mathanapp.data.repository
 
-import android.util.Log
-import it.macgood.mathanapp.data.MathAnalysisApi
-import it.macgood.mathanapp.data.datasource.ExerciseDto
 import it.macgood.mathanapp.data.datasource.TaskDao
-import it.macgood.mathanapp.data.datasource.toExercise
+import it.macgood.mathanapp.data.datasource.entity.toExercise
 import it.macgood.mathanapp.domain.model.Exercise
 import it.macgood.mathanapp.domain.repository.ExerciseRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import retrofit2.Response
 import javax.inject.Inject
 
 class ExerciseRepositoryImpl @Inject constructor(

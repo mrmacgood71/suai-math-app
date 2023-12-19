@@ -21,7 +21,7 @@ class AuthorFragment : Fragment() {
 
         binding.toolbar.title.text = "Авторы проекта"
         binding.toolbar.backButton.setOnClickListener {
-            findNavController().navigate(R.id.action_authorFragment_to_navigation_guidebook)
+            findNavController().popBackStack()
         }
 
         return binding.root

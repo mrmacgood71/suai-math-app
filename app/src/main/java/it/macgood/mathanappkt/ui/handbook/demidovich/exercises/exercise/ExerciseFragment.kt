@@ -12,6 +12,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import it.macgood.mathanapp.data.datasource.entity.SavedTaskDto
 import it.macgood.mathanapp.domain.repository.ExerciseRepository
 import it.macgood.mathanappkt.R
 import it.macgood.mathanappkt.databinding.FragmentExerciseBinding
@@ -95,7 +96,8 @@ class ExerciseFragment : Fragment() {
             }
 
             saveExerciseButton.setOnClickListener {
-                listViewModel.saveExercise(viewModel.exercise.value!!)
+                val exercise = viewModel.exercise.value!!
+                listViewModel.saveExercise(SavedTaskDto(exercise.id, exercise.questionNumber, exercise.questionText, exercise.formula))
                 Snackbar.make(requireView(), "Задача сохранена!", Snackbar.LENGTH_SHORT)
                     .setAnchorView(R.id.bottom_navigation_bar)
                     .show()

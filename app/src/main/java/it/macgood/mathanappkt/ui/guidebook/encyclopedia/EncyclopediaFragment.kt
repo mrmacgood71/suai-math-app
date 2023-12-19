@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import it.macgood.mathanappkt.R
 import it.macgood.mathanappkt.databinding.FragmentEncyclopediaBinding
+import it.macgood.mathanappkt.ui.MainActivity
 
 class EncyclopediaFragment : Fragment() {
     lateinit var binding: FragmentEncyclopediaBinding
@@ -25,9 +27,15 @@ class EncyclopediaFragment : Fragment() {
                 "Я"
             ), this)
         binding.recyclerView.adapter = adapter
-        val controller = findNavController(requireActivity(), R.id.app_placeholder)
         binding.toolbar.title.text = "Энциклопедия"
-        binding.toolbar.backButton.setOnClickListener { controller.navigate(R.id.get_guides_from_encyclopedia) }
+        binding.toolbar.backButton.setOnClickListener {
+            val navController
+                    = findNavController(
+                inflater.context as MainActivity,
+                R.id.app_placeholder
+            )
+            navController.popBackStack()
+        }
         return binding.root
     }
 

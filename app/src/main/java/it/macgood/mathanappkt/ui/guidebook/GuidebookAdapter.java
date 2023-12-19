@@ -95,23 +95,23 @@ public class GuidebookAdapter extends RecyclerView.Adapter<GuidebookAdapter.View
         private void navigateFromGuidebook(@NonNull View itemView, NavController navController) {
             switch (title.getText().toString()) {
                 case "Энциклопедия":
-                    navController.navigate(R.id.get_encyclopedia);
+                    navController.navigate(R.id.action_navigation_guidebook_to_encyclopediaFragment);
                     break;
                 case "Desmos":
-                    navController.navigate(R.id.get_desmos_from_guidebook);
+                    navController.navigate(R.id.action_navigation_guidebook_to_desmosFragment);
                     break;
                 case "Тесты":
-                    navController.navigate(R.id.get_tests_from_guidebook);
+                    navController.navigate(R.id.action_navigation_guidebook_to_testsFragment);
                     break;
                 case "Сопроводительные материалы":
-                    navController.navigate(R.id.get_supportingMaterials_from_guidebook);
+                    navController.navigate(R.id.action_navigation_guidebook_to_supportingMaterialsFragment);
                     break;
                 case "Конвертер изображений":
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MaterialsURL.CONVERTER));
                     itemView.getContext().startActivity(browserIntent);
                     break;
                 case "Примечания":
-                    navController.navigate(R.id.get_remark_from_guidebook);
+                    navController.navigate(R.id.action_navigation_guidebook_to_remarkFragment);
                     break;
                 case "Авторы":
                     navController.navigate(R.id.action_navigation_guidebook_to_authorFragment);

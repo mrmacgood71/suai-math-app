@@ -1,15 +1,16 @@
 package it.macgood.mathanapp.domain.repository
 
 import it.macgood.mathanapp.domain.model.Exercise
+import it.macgood.mathanapp.domain.model.SavedTask
 import kotlinx.coroutines.flow.Flow
 
 interface SavedExerciseRepository {
 
-    fun getTasks(): Flow<List<Exercise>>
+    fun getTasks(): Flow<List<SavedTask>>
 
-    suspend fun getTask(id: Long): Exercise?
+    suspend fun getSavedTask(id: Long): SavedTask?
 
-    suspend fun insertExercise(exercise: Exercise)
+    suspend fun insertSavedTask(exercise: SavedTask)
 
-    suspend fun deleteExercises(exercise: Exercise) : Int
+    suspend fun deleteSavedTask(exercise: SavedTask) : Int
 }

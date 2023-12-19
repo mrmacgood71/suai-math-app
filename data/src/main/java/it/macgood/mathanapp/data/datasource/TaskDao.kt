@@ -1,6 +1,7 @@
 package it.macgood.mathanapp.data.datasource
 
 import androidx.room.*
+import it.macgood.mathanapp.data.datasource.entity.ExerciseDto
 
 @Dao
 interface TaskDao {
@@ -19,4 +20,5 @@ interface TaskDao {
 
     @Delete
     suspend fun deleteExercises(exercise: ExerciseDto) : Int
+
 }

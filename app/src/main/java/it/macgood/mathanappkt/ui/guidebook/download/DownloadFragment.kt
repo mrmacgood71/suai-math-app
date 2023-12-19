@@ -43,7 +43,7 @@ class DownloadFragment : Fragment() {
                 R.id.app_placeholder
             )
 
-            navController.navigate(R.id.get_guidebook_from_download)
+            navController.popBackStack()
 
         }
 
