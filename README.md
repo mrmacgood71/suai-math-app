@@ -37,4 +37,23 @@
 
 ![asdf](blob/7.png) 
 
+<h2 align="center">Воспользоваться приложением?</h2>
+
+## 1. Скачать
+
+### Зайти на github в папку blob https://github.com/mrmacgood71/suai-math-app/tree/main/blob
+### Скачать app-debug.apk
+
+## 2. Собрать
+
+### Зайти в Android Studio и нажать build -> Build Bundle(s) / APK (s) -> Build APK(s)
+
+![asdf](blob/9.png) 
+
+### Результат будет в C:\Users\*Имя пользователя*\AndroidStudioProjects\MathAnAppKt\app\build\outputs\apk\debug
+
+![asdf](blob/10.png) 
+
+## И можно пользоваться!
+
 <h3 align="center">и многое другое......</h3>

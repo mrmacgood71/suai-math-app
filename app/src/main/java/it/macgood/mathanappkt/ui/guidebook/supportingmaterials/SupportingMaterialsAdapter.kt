@@ -47,34 +47,6 @@ class SupportingMaterialsAdapter(
 
             binding.material.setOnClickListener {
 
-//                try {
-//                    when(material.id) {
-//                        1L -> {}
-//                        2L -> {}
-//                        3L -> {}
-//                        4L -> {}
-//                        5L -> {}
-//                    }
-//                    val `in`: InputStream = it.context.getResources().openRawResource(R.raw.fiht)
-//
-//                    val downloadsDir =
-//                        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-//                    val outputFile = File(downloadsDir, "fihtengholtz.pdf")
-//
-//                    val out: OutputStream = FileOutputStream(outputFile)
-//
-//                    val buffer = ByteArray(1024)
-//                    var length: Int
-//                    while (`in`.read(buffer).also { length = it } > 0) {
-//                        out.write(buffer, 0, length)
-//                    }
-//
-//                    `in`.close()
-//                    out.close()
-//                } catch (e: IOException) {
-//                    e.printStackTrace()
-//                }
-
                 downloadImage(
                     url = Constants.DOWNLOAD_URL + material.url,
                     outputFileName = material.name + ".pdf",

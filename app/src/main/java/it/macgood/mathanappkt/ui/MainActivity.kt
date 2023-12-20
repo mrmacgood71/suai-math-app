@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity() {
                 "")
 
             navController.navigate(R.id.action_navigation_guidebook_to_exerciseFragment)
-            Log.d("TAG", "onCreate: $query")
         }
     }
 }

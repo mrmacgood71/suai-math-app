@@ -23,8 +23,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ExerciseListViewModel @Inject constructor(
-    val repository: ExerciseRepository,
-    val storage: SavedExerciseRepository
+    private val repository: ExerciseRepository,
+    private val storage: SavedExerciseRepository
 ) : ViewModel() {
 
     val range: MutableLiveData<String> by lazy {
@@ -34,15 +34,15 @@ class ExerciseListViewModel @Inject constructor(
     val saved: MutableLiveData<List<Exercise>> = MutableLiveData()
     val page: MutableLiveData<Int> = MutableLiveData()
 
-    val _searchExercises: MutableStateFlow<Resource<List<Exercise>>> =
+    private val _searchExercises: MutableStateFlow<Resource<List<Exercise>>> =
         MutableStateFlow(Resource.Loading())
     val searchExercises: StateFlow<Resource<List<Exercise>>> = _searchExercises.asStateFlow()
 
-    val _exercises: MutableStateFlow<Resource<List<Exercise>>> =
+    private val _exercises: MutableStateFlow<Resource<List<Exercise>>> =
         MutableStateFlow(Resource.Loading())
     val exercises: StateFlow<Resource<List<Exercise>>> = _exercises.asStateFlow()
 
-    val _savedTasks: MutableStateFlow<Resource<List<SavedTask>>> =
+    private val _savedTasks: MutableStateFlow<Resource<List<SavedTask>>> =
         MutableStateFlow(Resource.Loading())
     val savedTasks = _savedTasks.asStateFlow()
 
